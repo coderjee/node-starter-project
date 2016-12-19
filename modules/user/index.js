@@ -37,7 +37,6 @@ user.create = function (userData, callback) {
  * @returns
  */
 user.update = function (user) {
-
     return "user updated";
 }
 
@@ -47,9 +46,8 @@ user.update = function (user) {
  * @param {any} id
  * @returns
  */
-user.delete = function (id) {
-    return
-
+user.delete = function (id, callback) {
+    return UserModel.remove({ _id: id }, callback);
 }
 
 /**

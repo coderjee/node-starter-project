@@ -38,7 +38,7 @@ app.get('/users', getAllUser);
 
 app.put('/users', updateUser);
 
-app.delete('/users', deleteUser);
+app.delete('/users/:id', deleteUser);
 
 // =======================
 // start the server ======

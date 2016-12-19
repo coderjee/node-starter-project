@@ -4,7 +4,7 @@ var UserModule = require('../../modules/user');
 var createUser = function (req, res) {
     var body = req.body;
     UserModule.create(body, function (err, user) {
-        var response;
+        var response = {};
         if (err) {
             response = {
                 success: false,
