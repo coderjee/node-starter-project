@@ -1,13 +1,12 @@
 // import models 
-var UserModel = require('./models/UserModel');
+var UserModel = require('./models/User');
 
 /**
  * User Module
  * 
  */
-var userModule = {};
-module.exports = userModule;
-
+var user = {};
+module.exports = user;
 
 /**
  * These are the basic operations over any module.
@@ -26,8 +25,8 @@ module.exports = userModule;
  * @param {any} user
  * @returns
  */
-userModule.create = function (user) {
-    return "user created";
+user.create = function (userData, callback) {
+    return new UserModel(userData).save(callback);
 }
 
 /**
@@ -37,7 +36,8 @@ userModule.create = function (user) {
  * @param {any} user
  * @returns
  */
-userModule.update = function (user) {
+user.update = function (user) {
+
     return "user updated";
 }
 
@@ -47,8 +47,9 @@ userModule.update = function (user) {
  * @param {any} id
  * @returns
  */
-userModule.delete = function (id) {
-    return "user updated";
+user.delete = function (id) {
+    return
+
 }
 
 /**
@@ -57,14 +58,14 @@ userModule.delete = function (id) {
  * 
  * @returns list of users
  */
-userModule.find = function () {
+user.find = function () {
     return "users list";
 }
 
 /**
  * Find user by id
  */
-userModule.findById = function (userId) {
+user.findById = function (userId) {
     return "user found";
 }
 
@@ -74,6 +75,6 @@ userModule.findById = function (userId) {
  * @param {any} property
  * @param {any} value
  */
-userModule.findByProperty = function (property, value) {
+user.findByProperty = function (property, value) {
     return "property==" + property + " value ===" + value;
 }

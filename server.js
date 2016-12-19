@@ -1,11 +1,25 @@
 var _express = require('express');
 var _http = require('http');
+var mongoose = require('mongoose');
+var config = require('./config');
+var bodyParser = require('body-parser');
+
 var port = 4000;
+mongoose.connect(config.database);
+
+// Middlewares
+var createUser = require('./middleware/users/createUser');
+var deleteUser = require('./middleware/users/deleteUser');
+var getAllUser = require('./middleware/users/getAllUser');
+var updateUser = require('./middleware/users/updateUser');
 
 /**
  * Express instance.
  */
 var app = _express();
+app.use(bodyParser.urlencoded({ extended: true }));
+// get info from POST and/or URL params
+app.use(bodyParser.json());
 
 /**
  * Routings. 
@@ -15,24 +29,16 @@ app.get('/', function (req, res) {
 });
 
 /**
- * REST Api for route '/users'.
+ * REST Api routes for route '/users'.
  */
-app.get('/users', function (req, res) {
-    res.send('This is get reponse')
-});
 
-app.post('/users', function(req, res) {
+app.post('/users', createUser);
 
-    res.send('This is post reponse')
-});
+app.get('/users', getAllUser);
 
-app.put('/users', function(req, res) {
-    res.send('This is put reponse')
-});
+app.put('/users', updateUser);
 
-app.delete('/users', function(req, res) {
-    res.send('This is delete reponse')
-});
+app.delete('/users', deleteUser);
 
 // =======================
 // start the server ======

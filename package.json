@@ -13,6 +13,7 @@
   "author": "Shubham Verma",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "http": "0.0.0",
     "mongoose": "^4.7.3"
