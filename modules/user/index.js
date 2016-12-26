@@ -36,8 +36,8 @@ user.create = function (userData, callback) {
  * @param {any} user
  * @returns
  */
-user.update = function (user) {
-    return "user updated";
+user.update = function (user, callback) {
+   return new UserModel(user).update(callback);
 }
 
 /**
@@ -56,15 +56,15 @@ user.delete = function (id, callback) {
  * 
  * @returns list of users
  */
-user.find = function () {
-    return "users list";
+user.findAll = function (query, callback) {
+    return UserModel.find(query, callback);
 }
 
 /**
  * Find user by id
  */
-user.findById = function (userId) {
-    return "user found";
+user.findById = function (id, callback) {
+  return  UserModel.findOne({ _id: id }, callback);
 }
 
 /**
@@ -74,5 +74,5 @@ user.findById = function (userId) {
  * @param {any} value
  */
 user.findByProperty = function (property, value) {
-    return "property==" + property + " value ===" + value;
+   return UserModel.find({property: value}, callback);
 }

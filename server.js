@@ -36,7 +36,7 @@ app.post('/users', createUser);
 
 app.get('/users', getAllUser);
 
-app.put('/users', updateUser);
+app.put('/users/:id', updateUser);
 
 app.delete('/users/:id', deleteUser);
 

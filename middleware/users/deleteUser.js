@@ -1,7 +1,6 @@
 // / get our mongoose model
 var UserModule = require('../../modules/user');
 
-
 var deleteUser = function (req, res) {
     var userId = req.params.id;
     UserModule.delete(userId, function (err, resp) {
@@ -16,8 +15,7 @@ var deleteUser = function (req, res) {
         if (resp) {
             response = {
                 success: true,
-                message: 'User deleted',
-                user: resp
+                message: 'User deleted'
             }
         }
         res.json(response);
